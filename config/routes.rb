@@ -1,5 +1,16 @@
 Rails.application.routes.draw do
   devise_for :users
+
+  namespace :admin do
+    get 'pending/index'
+    get 'home/index'
+    resources :items
+    get 'dashboard', to: 'home#index'
+    get 'pending', to: 'pending#index'
+
+    patch 'pending/:id/approve', to: 'pending#approve', as: 'approve_pending_user'
+  end
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

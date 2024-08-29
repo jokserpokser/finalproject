@@ -1,0 +1,21 @@
+<%= render 'shared/logout_button' %>
+
+<h1>Item Details</h1>
+
+<p>
+  <strong>Item Name:</strong>
+  <%= @item.item_name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @item.item_description %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  $<%= @item.price %>
+</p>
+
+<%= link_to 'Edit Item', edit_admin_item_path(@item) %> |
+<%= link_to 'Back to Items', admin_items_path %>

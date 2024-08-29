@@ -1,0 +1,26 @@
+<%= render 'shared/logout_button' %>
+
+<%= link_to 'Back to Dashboard', admin_dashboard_path %>
+<h1>Pending Users</h1>
+<table>
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Email</th>
+            <th>Account Status</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @pending_users.each_with_index do |user, index| %>
+            <tr>
+                <td><%= index + 1 %>.</td>
+                <td><%= user.email %></td>
+                <td><%= user.account_status %></td>
+                <td>
+                    <%= button_to 'Approve', admin_approve_pending_user_path(user), method: :patch %>
+                </td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>
