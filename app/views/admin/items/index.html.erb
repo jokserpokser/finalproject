@@ -1,0 +1,26 @@
+<%= render 'shared/logout_button' %>
+
+<%= link_to 'Back to Dashboard', admin_dashboard_path %>
+
+<p style="color: green"><%= notice %></p>
+
+<h1>Items</h1>
+<%= link_to "New item", new_admin_item_path	 %>
+
+<div id="items">
+  <% @items.each do |item| %>
+    <div class="item">
+      <ol>
+          <li>
+              <h4><%= item.item_name %></h4>
+              <p><%= item.item_description %></p>
+              <p>Price: $<%= item.price %></p>
+              <%= link_to "Edit", edit_admin_item_path(item) %> |
+              <%= button_to "Delete", admin_item_path(item), method: :delete, data: { confirm: 'Are you sure?' } %>
+          </li>
+      </ol>
+    </div>
+  <% end %>
+</div>
+
+
