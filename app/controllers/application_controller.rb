@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
         when 'admin'
           admin_dashboard_path
         when 'buyer'
-          buyer_home_path
+          admin_dashboard_path # Temporary Path
         else
           root_path             
         end
