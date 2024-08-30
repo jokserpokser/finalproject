@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema[7.1].define(version: 2024_08_30_113853) do
   create_table "items", force: :cascade do |t|
     t.string "item_name"
