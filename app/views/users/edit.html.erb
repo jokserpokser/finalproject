@@ -1,0 +1,28 @@
+<h1>Edit Profile</h1>
+
+<%= form_for(@user, url: user_path, method: :put) do |f| %>
+  <div>
+    <%= f.label :email %>
+    <%= f.text_field :email, disabled: true %>
+  </div>
+
+  <div>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div>
+    <%= f.label :contact_number %>
+    <%= f.text_field :contact_number %>
+  </div>
+
+  <div>
+    <%= f.label :address %>
+    <%= f.text_area :address %>
+  </div>
+
+  <div>
+    <%= f.submit 'Update Profile' %>
+  </div>
+<% end %>
+<%= link_to 'Back', user_path %>
