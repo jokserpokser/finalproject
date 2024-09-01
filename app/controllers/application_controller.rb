@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
       when 'admin'
         admin_dashboard_path
       when 'buyer'
-        user_path # Temporary Path
+        user_path
       else
         root_path             
       end
