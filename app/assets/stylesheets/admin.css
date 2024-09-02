@@ -1,0 +1,85 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+
+
+/* .quicksand-<uniquifier> {
+    font-family: "Quicksand", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: <weight>;
+    font-style: normal;
+  } */
+
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: "Quicksand", sans-serif;
+    font-style: normal;
+}
+
+body{
+    background-color: rgb(235, 235, 235);
+}
+
+.admin-header{
+    width: 100%;
+    text-align: center;
+}
+
+.admin-container{
+    display: flex;
+    width: 100%;
+}
+
+.admin-sidebar{
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #bb3453;
+    padding-block: 0.5rem;
+    min-width: 13rem;
+    font-weight: bolder;
+    height: 100%;
+    box-shadow: 10px 0 15px -5px rgba(255, 0, 0, 0.3);
+
+}
+
+.admin-sidebar a{
+    display: block;
+    padding-left: 2rem;
+    padding-block: 1rem;
+    text-decoration: none;
+    color: #ffff;
+    width: 100%;
+}
+
+.admin-sidebar button {
+    border: hidden;
+    background: transparent;
+    padding-left: 2rem;
+    padding-block: 1rem;
+    color: #ffff;
+    font-weight: bolder;
+    width: 100%;
+    text-align: left;
+    font-size: 1rem;
+}
+
+
+.admin-sidebar p:hover, .admin-sidebar button:hover{
+    background-color: #5f1829;
+    cursor: pointer;
+}
+
+.admin-sidebar-content {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    width: 90%;
+    margin-left: 13rem;
+    padding: 0.5rem;
+    height: 100%;
+    background-color: #161616;
+    color: #bb3453;
+}
