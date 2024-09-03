@@ -1,0 +1,12 @@
+<h1>Your Cart</h1>
+
+<!-- Example content: display cart items -->
+<% if @cart_items.present? %>
+  <ul>
+    <% @cart_items.each do |item| %>
+      <li><%= item.name %> - <%= item.quantity %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>Your cart is empty.</p>
+<% end %>

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'carts/show'
   devise_for :users
 
   namespace :admin do
@@ -7,8 +8,10 @@ Rails.application.routes.draw do
     resources :items
     get 'dashboard', to: 'home#index'
   end
-
+  resource :cart, only: [:show]
   resource :user, only: [:show, :edit, :update]
+
+  get 'about_us', to: 'pages#about_us'
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
