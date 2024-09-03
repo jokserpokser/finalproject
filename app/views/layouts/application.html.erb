@@ -11,6 +11,14 @@
   </head>
 
   <body>
+    <nav>
+      <ul>
+        <li><%= link_to 'Home', user_path %></li>
+        <li><%= link_to 'Cart', cart_path %></li>
+        <li><%= link_to 'Profile', user_path %></li>
+        <li><%= link_to 'About Us', about_us_path %></li>
+      </ul>
+    </nav>
     <%= yield %>
   </body>
 </html>
