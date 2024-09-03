@@ -21,6 +21,10 @@ body{
     background-color: rgb(235, 235, 235);
 }
 
+button{
+    cursor: pointer;
+}
+
 .admin-header{
     width: 100%;
     text-align: center;
@@ -41,7 +45,7 @@ body{
     min-width: 13rem;
     font-weight: bolder;
     height: 100%;
-    box-shadow: 10px 0 15px -5px rgba(255, 0, 0, 0.3);
+    z-index: 999;
 
 }
 
@@ -75,11 +79,103 @@ body{
 .admin-sidebar-content {
     position: fixed;
     display: flex;
-    justify-content: center;
-    width: 90%;
-    margin-left: 13rem;
-    padding: 0.5rem;
+    flex-direction: column;
+    padding-left: 13rem;
+    width: calc(100% - 13rem);
     height: 100%;
     background-color: #161616;
+    color: #ffffff;
+
+}
+
+.items-container{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    place-items: center;
+    
+}
+
+.item{
+    padding: 1rem;
+    width: 20rem;
+    height: 10rem;
+}
+
+.item-title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: whitesmoke;
+    background-color: #bb3453;
+    padding-inline: 1rem;
+    padding-block: 0.5rem;
+    width: 20rem;
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+}
+
+.item-title button{
+    background-color: maroon;
+    color: white;
+    padding: 0.3rem;
+    padding-inline: 0.5rem;
+    border: hidden;
+    
+}
+
+.item-title a {
+    text-decoration: underline;
+    padding-inline: 0.5rem;
+    font-size: 1rem;
+    color: white;
+}
+
+.item-content{
+    display: block;
+    background-color: #232323;
+    width: 20rem;
+    height: 7rem;
+    padding: 1rem;
+    border-bottom-left-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+}
+
+.item-buttons{
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+    padding: 1rem;
+    text-align: center;
+}
+
+
+.item-buttons a{
+    color: white;
+    text-decoration: none;
+    width: 100%;
+    background-color: #bb3453;
+    padding-block: 0.5rem;
+    width: 7rem;
+    font-size: 1rem;
+    border-radius: 0.5rem;
+    font-weight: bolder;
+}
+
+.item-buttons a:hover{
+    background-color: #5f1829;
+}
+
+.content-title{
+    background-color: #bb3453;
+    text-align: center;
+    padding-block: 0.5rem;
+}
+
+.current-page{
+    background-color: #5f1829;
+}
+
+.primary {
     color: #bb3453;
 }
+

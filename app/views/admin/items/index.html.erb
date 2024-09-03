@@ -1,24 +1,62 @@
-<%= render 'shared/logout_button' %>
 
-<%= link_to 'Back to Dashboard', admin_dashboard_path %>
+<div class="admin-container">
+  <div class="admin-sidebar">
+        <p>
+            <%= link_to admin_dashboard_path do %>
+                <i class="fa-solid fa-table-columns"></i> Dashboard
+            <% end %>
+        </p>
 
-<h1>Items</h1>
-<%= link_to "New item", new_admin_item_path	 %>
+        <p><%= link_to admin_items_path do %>
+            <i class="fa-solid fa-box"></i> Transactions
+        <% end %></p>
 
-<div id="items">
-  <% @items.each do |item| %>
-    <div class="item">
-      <ol>
-          <li>
-              <h4><%= item.item_name %></h4>
-              <p><%= item.item_description %></p>
-              <p>Price: $<%= item.price %></p>
-              <%= link_to "Edit", edit_admin_item_path(item) %> |
-              <%= button_to "Delete", admin_item_path(item), method: :delete, data: { confirm: 'Are you sure?' } %>
-          </li>
-      </ol>
+        <p class="current-page"><%= link_to admin_items_path do %>
+            <i class="fa-solid fa-list"></i> Item List
+        <% end %></p>
+
+        <p><%= link_to admin_items_path do %>
+            <i class="fa-solid fa-users"></i> Users
+        <% end %></p>
+
+        <p><%= render 'shared/logout_button' %></p>
+  </div>
+  <div class="admin-sidebar-content">
+    <h1 class="content-title">Item List</h1>
+    <span class="item-buttons"><%= link_to "Add item", new_admin_item_path	 %></span>
+    <div class="items-container">
+      
+        <% @items.each do |item| %>
+          <span class="item">
+            <h3 class="item-title">
+              <%= item.item_name %>
+              <%= link_to "Edit", edit_admin_item_path(item) %>
+              <%= button_to admin_item_path(item), method: :delete, class: "delete-button" do %>
+                <i class="fa-solid fa-trash-can"></i> Delete
+              <% end %>
+              
+            </h3>
+              <span class="item-content">
+                <p>Price: $<%= item.price %></p>
+                <br>
+                <p><%= item.item_description %></p>
+                
+                
+              </span>
+          </span>
+          
+        <% end %>
+      
+      
     </div>
-  <% end %>
+      
+    
+  </div>
 </div>
+
+
+
+
+
 
 
