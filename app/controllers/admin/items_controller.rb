@@ -4,7 +4,8 @@ class Admin::ItemsController < ApplicationController
 
   # GET /items or /items.json
   def index
-    @items = Item.all
+    @items = Item.order(item_name: :asc)
+    @item = Item.new
   end
 
   # GET /items/1 or /items/1.json

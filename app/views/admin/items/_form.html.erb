@@ -11,22 +11,20 @@
     </div>
   <% end %>
 
-  <div>
+  
     <%= form.label :item_name, style: "display: block" %>
     <%= form.text_field :item_name %>
-  </div>
+  
 
-  <div>
+  
     <%= form.label :item_description, style: "display: block" %>
     <%= form.text_field :item_description %>
-  </div>
+  
 
-  <div>
+  
     <%= form.label :price, style: "display: block" %>
     <%= form.number_field :price %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
+    <br>
+    <%= form.submit "Add" %>
+  
 <% end %>

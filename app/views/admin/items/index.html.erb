@@ -1,3 +1,6 @@
+<%= content_for :page_specific_js do %>
+  <%= javascript_include_tag 'modal', 'data-turbo-track': 'reload' %>
+<% end %>
 
 <div class="admin-container">
   <div class="admin-sidebar">
@@ -22,10 +25,10 @@
         <p><%= render 'shared/logout_button' %></p>
   </div>
   <div class="admin-sidebar-content">
-    <h1 class="content-title">Item List</h1>
-    <span class="item-buttons"><%= link_to "Add item", new_admin_item_path	 %></span>
+    <div class="content-header">
+      <h1 class="content-title">Item List<span class="item-buttons"><button id="addItemButton">+ Add Item</button></span></h1>
+    </div>
     <div class="items-container">
-      
         <% @items.each do |item| %>
           <span class="item">
             <h3 class="item-title">
@@ -34,25 +37,47 @@
               <%= button_to admin_item_path(item), method: :delete, class: "delete-button" do %>
                 <i class="fa-solid fa-trash-can"></i> Delete
               <% end %>
-              
             </h3>
               <span class="item-content">
                 <p>Price: $<%= item.price %></p>
                 <br>
                 <p><%= item.item_description %></p>
-                
-                
               </span>
           </span>
-          
         <% end %>
-      
-      
     </div>
-      
-    
   </div>
 </div>
+
+<div id="newItemModal" class="modal-form">
+  <div class="modal-content">
+    <span class="close-button-container"><button id="closeButton" class="close-button">x</button></span>
+    <h2 class="">New Item</h2>
+    <%= render 'form', item: @item %>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const modal = document.getElementById('newItemModal');
+    const closeButton = document.getElementById('closeButton');
+    const addNewItemButton = document.getElementById('addItemButton');
+  
+    closeButton.addEventListener('click', () => {
+      modal.style.display = 'none';
+    });
+
+    addNewItemButton.addEventListener('click', () => {
+        modal.style.display = 'flex';
+    })
+  
+    window.addEventListener('click', (event) => {
+      if (event.target == modal) {
+        modal.style.display = 'none';
+      }
+    });
+  });
+</script>
 
 
 

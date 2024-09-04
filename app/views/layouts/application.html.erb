@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="">
   <head>
     <title>Omgproject</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -8,6 +8,10 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+
+    <% if content_for?(:page_specific_js) %>
+      <%= yield :page_specific_js %>
+    <% end %>
 
     <script src="https://kit.fontawesome.com/daed6cd0ca.js" crossorigin="anonymous"></script>
   </head>
