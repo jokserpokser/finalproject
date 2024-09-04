@@ -1,0 +1,12 @@
+<h1>Welcome to Our Online Shop</h1>
+
+<div class="items-list">
+  <% @items.each do |item| %>
+    <div class="product-item">
+      <h2><%= item.name %></h2>
+      <p><%= item.description %></p>
+      <p>Price: <%= number_to_currency(item.price) %></p>
+      <%= link_to 'View Product', item_path(item) %>
+    </div>
+  <% end %>
+</div>

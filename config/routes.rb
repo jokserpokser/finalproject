@@ -1,24 +1,31 @@
 Rails.application.routes.draw do
+  # Define the routes for IndexHomeController
+  get 'index_home/index'
+
+  # Cart routes
   get 'carts/show'
+  resource :cart, only: [:show]
+
+  # Devise routes for user authentication
   devise_for :users
 
+  # Admin namespace routes
   namespace :admin do
     get 'pending/index'
     get 'home/index'
     resources :items
     get 'dashboard', to: 'home#index'
   end
-  resource :cart, only: [:show]
+
+  # User routes for profile management
   resource :user, only: [:show, :edit, :update]
 
+  # Static page routes
   get 'about_us', to: 'pages#about_us'
 
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
-  # Can be used by load balancers and uptime monitors to verify that the app is live.
+  # Health check route
   get "up" => "rails/health#show", as: :rails_health_check
 
-  # Defines the root path route ("/")
-  # root "posts#index"
+  # Set the root path route to the IndexHomeController's index action
+  root "index_home#index"
 end
