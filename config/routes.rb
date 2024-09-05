@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     get 'home/index'
     resources :items
     get 'dashboard', to: 'home#index'
+    resources :user_list
   end
 
   resource :user, only: [:show, :edit, :update]

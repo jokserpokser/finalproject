@@ -1,12 +1,31 @@
-<%= render 'shared/logout_button' %>
+<div class="admin-container">
+  <div class="admin-sidebar">
+        <p>
+            <%= link_to admin_dashboard_path do %>
+                <i class="fa-solid fa-table-columns"></i> Dashboard
+            <% end %>
+        </p>
 
-<h1>Editing item</h1>
+        <p><%= link_to admin_items_path do %>
+            <i class="fa-solid fa-box"></i> Transactions
+        <% end %></p>
 
-<%= render "form", item: @item %>
+        <p class="current-page"><%= link_to admin_items_path do %>
+            <i class="fa-solid fa-list"></i> Item List
+        <% end %></p>
 
-<br>
+        <p><%= link_to admin_user_list_index_path do %>
+            <i class="fa-solid fa-users"></i> Users
+        <% end %></p>
 
-<div>
-  <%= link_to "Show this item", admin_item_path(@item) %> |
-  <%= link_to "Back to items", admin_items_path	 %>
+        <p><%= render 'shared/logout_button' %></p>
+  </div>
+  <div class="admin-sidebar-content">
+    <div class="content-header">
+      <h1 class="content-title2">Edit Item<span class="item-buttons2"><%= link_to 'Back to Item List', admin_items_path	%></span></h1>
+    </div>
+    <div class="items-container2">
+        <%= render "form", item: @item %>
+    </div>
+  </div>
 </div>

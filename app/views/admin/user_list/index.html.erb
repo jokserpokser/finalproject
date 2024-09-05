@@ -1,0 +1,56 @@
+<div class="admin-container">
+    
+    <div class="admin-sidebar">
+        <p>
+            <%= link_to admin_dashboard_path do %>
+                <i class="fa-solid fa-table-columns"></i> Dashboard
+            <% end %>
+        </p>
+
+        <p><%= link_to admin_items_path do %>
+            <i class="fa-solid fa-box"></i> Transactions
+        <% end %></p>
+
+        <p><%= link_to admin_items_path do %>
+            <i class="fa-solid fa-list"></i> Item List
+        <% end %></p>
+
+        <p class="current-page"><%= link_to admin_user_list_index_path do %>
+            <i class="fa-solid fa-users"></i> Users
+        <% end %></p>
+
+        <p><%= render 'shared/logout_button' %></p>
+
+    </div>
+    <div class="admin-sidebar-content">
+        <div class="content-header">
+            <h1 class="content-title">User List<span class="item-buttons"><%= link_to '+ Create', new_admin_item_path	%></span></h1>
+        </div>
+        <div class="users-container">
+            <table>
+                <thead>
+                    <th>User ID</th>
+                    <th>Email</th>
+                    <th>Name</th>
+                    <th>Contact Number</th>
+                    <th>Address</th>
+                    <th>Balance</th>
+                    <th>Actions</th>
+                </thead>
+                <tbody>
+                    <% @users.each do |user| %>
+                        <tr>
+                            <td><%= user.id %></td>
+                            <td><%= user.email %></td>
+                            <td><%= user.name.present? ? user.name : "(Not Provided Yet)" %></td>
+                            <td><%= user.contact_number.present? ? user.contact_number : "(Not Provided Yet)" %></td>
+                            <td><%= user.address.present? ? user.address : "(Not Provided Yet)" %></td>
+                            <td><%= user.balance %></td>
+                            <td></td>
+                        </tr>
+                    <% end %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
