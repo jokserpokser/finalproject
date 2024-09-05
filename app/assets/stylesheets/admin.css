@@ -108,6 +108,7 @@ input[type="submit"]:hover{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     width: 70%;
+    row-gap: 4rem;
     justify-items: center;
     
     
@@ -137,14 +138,23 @@ input[type="submit"]:hover{
     padding: 0.3rem;
     padding-inline: 0.5rem;
     border: hidden;
-    
+    width: 5rem;
+    border-radius: 0.2rem;
 }
 
 .item-title a {
-    text-decoration: underline;
-    padding-inline: 0.5rem;
-    font-size: 1rem;
+    display: block;
+    background-color: rgb(10, 52, 89);
     color: white;
+    padding: 0.1rem;
+    padding-inline: 0.5rem;
+    border: hidden;
+    font-weight: normal;
+    font-size: 1rem;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 0.2rem;
+    margin-bottom: 0.5rem;
 }
 
 .item-content{
@@ -164,7 +174,7 @@ input[type="submit"]:hover{
 }
 
 
-.item-buttons button{
+.item-buttons a{
     color: white;
     text-decoration: none;
     width: 100%;
@@ -177,7 +187,7 @@ input[type="submit"]:hover{
     border: none;
 }
 
-.item-buttons button:hover{
+.item-buttons a:hover{
     background-color: #5f1829;
 }
 
