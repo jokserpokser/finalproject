@@ -1,6 +1,4 @@
-<%= content_for :page_specific_js do %>
-  <%= javascript_include_tag 'modal', 'data-turbo-track': 'reload' %>
-<% end %>
+
 
 <div class="admin-container">
   <div class="admin-sidebar">
@@ -35,9 +33,7 @@
               <%= item.item_name %>
               <div>
                 <%= link_to "Edit", edit_admin_item_path(item) %>
-                <%= button_to admin_item_path(item), method: :delete, class: "delete-button" do %>
-                  <i class="fa-solid fa-trash-can"></i> Delete
-                <% end %>
+                <%= button_to "Delete", admin_item_path(item), method: :delete, class: "delete-button" %>
               </div>
              
             </h3>

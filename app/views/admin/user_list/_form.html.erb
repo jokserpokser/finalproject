@@ -1,0 +1,53 @@
+<%= form_with(model: @user, url: @user.new_record? ? admin_user_list_index_path : admin_user_list_path(@user), local: true) do |form| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+        <% @user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.email_field :email, required: true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, required: true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :contact_number %>
+    <%= form.text_field :contact_number %>
+  </div>
+
+  <div class="field">
+    <%= form.label :address %>
+    <%= form.text_field :address %>
+  </div>
+
+  <div class="field">
+    <%= form.label :balance %>
+    <%= form.number_field :balance, step: 0.01 %>
+  </div>
+
+  <%# Only show password fields for new user or when editing a user %>
+  <div class="field">
+    <%= form.label :password %>
+    <%= form.password_field :password, required: @user.new_record? %>
+  </div>
+
+  <div class="field">
+    <%= form.label :password_confirmation %>
+    <%= form.password_field :password_confirmation, required: @user.new_record? %>
+  </div>
+
+  <div class="submit-container">
+    <%= form.submit %>
+  </div>
+<% end %>

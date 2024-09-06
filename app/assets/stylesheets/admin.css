@@ -18,6 +18,12 @@ body {
    background-color: rgb(235, 235, 235);
 }
 
+input:focus {
+   outline: none; /* Remove default outline */
+   border: 2px solid #bb3453; /* Add a custom border */
+   box-shadow: 0 0 5px #5f1829; /* Optional: Add a shadow */
+}
+
 button {
    cursor: pointer;
 }
@@ -82,8 +88,9 @@ input[type="submit"]:hover {
 }
 
 .admin-sidebar p:hover,
-.admin-sidebar button:hover {
-   background-color: #5f1829;
+.admin-sidebar button:hover,
+.admin-sidebar p a:hover {
+   background-color: #161616;
    cursor: pointer;
 }
 
@@ -107,15 +114,18 @@ input[type="submit"]:hover {
    justify-items: center;
 }
 
-.items-container2 {
+.items-container2,
+.users-container2 {
    background-color: #232323;
    padding: 2rem;
    font-size: 1.2rem;
    width: 20rem;
 }
 
-.items-container2 input[type="text"],
-.items-container2 input[type="number"] {
+.admin-sidebar-content input[type="text"],
+.admin-sidebar-content input[type="number"],
+.admin-sidebar-content input[type="email"],
+.admin-sidebar-content input[type="password"] {
    width: 100%;
    font-size: 1.3rem;
    padding-block: 0.5rem;
@@ -135,7 +145,7 @@ input[type="submit"]:hover {
    justify-content: space-between;
    align-items: center;
    color: whitesmoke;
-   background-color: #bb3453;
+   background-color: #5f1829;
    padding-inline: 1rem;
    padding-block: 0.5rem;
    width: 20rem;
@@ -144,18 +154,19 @@ input[type="submit"]:hover {
 }
 
 .item-title button {
-   background-color: maroon;
+   background-color: rgb(219, 64, 64);
    color: white;
    padding: 0.3rem;
    padding-inline: 0.5rem;
    border: hidden;
    width: 5rem;
    border-radius: 0.2rem;
+   font-weight: bolder;
 }
 
 .item-title a {
    display: block;
-   background-color: rgb(10, 52, 89);
+   background-color: rgb(49, 49, 247);
    color: white;
    padding: 0.1rem;
    padding-inline: 0.5rem;
@@ -166,6 +177,7 @@ input[type="submit"]:hover {
    text-decoration: none;
    border-radius: 0.2rem;
    margin-bottom: 0.5rem;
+   font-weight: bolder;
 }
 
 .item-content {
@@ -242,47 +254,8 @@ input[type="submit"]:hover {
    padding-block: 0.5rem;
 }
 
-.modal-form {
-   position: absolute;
-   display: none;
-   justify-content: center;
-   align-items: center;
-   background-color: rgba(0, 0, 0, 0.603);
-   z-index: 9999;
-   width: 100%;
-   height: 100%;
-}
-
-.modal-content {
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   background-color: #1e1e1e;
-   padding: 1rem;
-   padding-top: 0;
-   border-radius: 0.5rem;
-   color: white;
-   width: 20rem;
-   text-align: center;
-}
-
-.modal-content h2 {
-   position: relative;
-   top: 0;
-}
-
-.modal-content input[type="text"],
-.modal-content input[type="number"] {
-   background-color: #181818;
-   border: hidden;
-   color: white;
-   padding: 0.2rem;
-   margin-bottom: 1rem;
-   font-size: 1.1rem;
-}
-
 .current-page {
-   background-color: #5f1829;
+   background-color: #161616;
 }
 
 .primary {
@@ -312,4 +285,62 @@ input[type="submit"]:hover {
    display: flex;
    align-items: center;
    justify-content: center;
+}
+
+.users-container {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   width: 100%;
+}
+
+.users-container table {
+   width: 80%;
+   text-align: center;
+   border-collapse: collapse;
+}
+
+.users-container table td {
+   background-color: #232323;
+   border: none;
+   padding-block: 1rem;
+   margin-bottom: 3rem;
+}
+
+.users-container table button {
+   border: none;
+   background-color: rgb(219, 64, 64);
+   color: white;
+   padding-inline: 1rem;
+   padding-block: 0.4rem;
+   margin-top: 1rem;
+   font-size: 0.8em;
+   width: 5rem;
+   font-weight: bolder;
+}
+
+.users-container table a {
+   display: inline-block;
+   border: none;
+   text-decoration: none;
+   background-color: rgb(49, 49, 247);
+   color: white;
+   padding-inline: 1rem;
+   padding-block: 0.4rem;
+   font-size: 0.8em;
+   width: 3rem;
+   font-weight: bolder;
+}
+
+.users-container table a:hover {
+   background-color: rgb(33, 33, 176);
+}
+
+.users-container table button:hover {
+   background-color: rgb(138, 38, 38);
+}
+
+.table-row-gap {
+   background: none !important;
+   padding-block: 1rem;
 }
