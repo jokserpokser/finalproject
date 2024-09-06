@@ -6,7 +6,7 @@
             <% end %>
         </p>
 
-        <p><%= link_to admin_items_path do %>
+        <p><%= link_to  do %>
             <i class="fa-solid fa-box"></i> Transactions
         <% end %></p>
 
@@ -27,7 +27,7 @@
         <span class="item-buttons2"><%= link_to 'Back to Item List', admin_items_path	%></span></h1>
     </div>
     <div class="items-container2">
-        <h2 class="submit-container">Edit Item</h2>
+        <h2 class="submit-container">Add New Item</h2>
         <%= render "form", item: @item %>
     </div>
   </div>
