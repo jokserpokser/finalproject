@@ -24,7 +24,9 @@
   </div>
   <div class="admin-sidebar-content">
     <div class="content-header">
-      <h1 class="content-title">Item List<span class="item-buttons"><%= link_to '+ Add Item', new_admin_item_path	%></span></h1>
+      <h1 class="content-title">Item List
+        <span class="notice" ><%= notice %></span>
+        <span class="item-buttons"><%= link_to '+ Add Item', new_admin_item_path	%></span></h1>
     </div>
     <div class="items-container">
         <% @items.each do |item| %>

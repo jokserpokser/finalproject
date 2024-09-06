@@ -24,7 +24,13 @@
     </div>
     <div class="admin-sidebar-content">
         <div class="content-header">
-            <h1 class="content-title">User List<span class="item-buttons"><%= link_to '+ Create', new_admin_user_list_path %></span></h1>
+            <h1 class="content-title">
+                User List
+                <span class="notice" ><%= notice %></span>
+                <span class="item-buttons">
+                    <%= link_to '+ Create', new_admin_user_list_path %>
+                </span>
+            </h1>
         </div>
         <div class="users-container">
             <table cellspacing="0">

@@ -344,3 +344,8 @@ input[type="submit"]:hover {
    background: none !important;
    padding-block: 1rem;
 }
+
+.notice {
+   font-size: 1rem;
+   color: rgb(251, 181, 101);
+}

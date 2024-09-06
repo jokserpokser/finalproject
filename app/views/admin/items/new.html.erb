@@ -22,7 +22,9 @@
   </div>
   <div class="admin-sidebar-content">
     <div class="content-header">
-      <h1 class="content-title2">Item List<span class="item-buttons2"><%= link_to 'Back to Item List', admin_items_path	%></span></h1>
+      <h1 class="content-title2">Item List
+        <span class="notice" ><%= notice %></span>
+        <span class="item-buttons2"><%= link_to 'Back to Item List', admin_items_path	%></span></h1>
     </div>
     <div class="items-container2">
         <h2 class="submit-container">Add New Item</h2>
