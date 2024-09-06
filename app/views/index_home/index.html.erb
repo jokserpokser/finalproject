@@ -1,12 +1,15 @@
 <h1>Welcome to Our Online Shop</h1>
 
-<div class="items-list">
-  <% @items.each do |item| %>
-    <div class="product-item">
-      <h2><%= item.name %></h2>
-      <p><%= item.description %></p>
-      <p>Price: <%= number_to_currency(item.price) %></p>
-      <%= link_to 'View Product', item_path(item) %>
-    </div>
-  <% end %>
-</div>
+<% @items.each do |item| %>
+  <div class="product-item">
+    <h2><%= item.item_name %></h2>
+    <p><%= item.item_description %></p>
+    <p>Price: <%= number_to_currency(item.price) %></p>
+
+    <% if user_signed_in? && current_user.cart %>
+      <%= link_to 'Add to Cart', add_item_cart_path(cart_id: current_user.cart.id, item_id: item.id), method: :post, class: "btn btn-primary" %>
+    <% else %>
+      <%= link_to 'Login to add to cart', new_user_session_path, class: "btn btn-secondary" %>
+    <% end %>
+  </div>
+<% end %>

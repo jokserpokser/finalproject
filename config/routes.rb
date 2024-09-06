@@ -20,7 +20,13 @@ Rails.application.routes.draw do
 
   # User routes for profile management
   resource :user, only: [:show, :edit, :update]
-
+  resources :cart_items, only: [:create]
+  resources :carts, only: [:show] do
+    post 'add_item', to: 'carts#add_item', as: 'add_item'
+  end
+  resources :items 
+  
+  
   # Static page routes
   get 'about_us', to: 'pages#about_us'
 

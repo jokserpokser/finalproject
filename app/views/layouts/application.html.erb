@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="">
   <head>
-    <title>Omgproject</title>
+    <title>OMG</title>
+    <%= favicon_link_tag 'OMGs.png'%>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <script src="https://cdn.tailwindcss.com"></script>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
 
@@ -13,15 +14,22 @@
     <script src="https://kit.fontawesome.com/daed6cd0ca.js" crossorigin="anonymous"></script>
   </head>
 
-  <body>
-    <nav>
-      <ul>
-        <li><%= link_to 'Home', index_home_index_path %></li>
-        <li><%= link_to 'Cart', cart_path %></li>
-        <li><%= link_to 'Profile', user_path %></li>
-        <li><%= link_to 'About Us', about_us_path %></li>
-      </ul>
-    </nav>
+  <body class="font-[Poppins] bg-gradient-to-t from-[#fbc2eb] to-[#a6c1ee] h-screen">
+    <header class="bg-white">
+      <nav class="flex justify-between items-center w-[92%] mx-auto">
+        <div class="header-log w-16">
+          <%= image_tag 'OMGs.png', alt: 'Site logo', class: 'logo' %>
+        </div>
+        <div class="">
+          <ul class="flex items-center gap-[4vw]">
+            <li class="hover:text-gray-500"><%= link_to 'Home', index_home_index_path %></li>
+            <li class="hover:text-gray-500"><%= link_to 'Cart', cart_path %></li>
+            <li class="hover:text-gray-500"><%= link_to 'Profile', user_path %></li>
+            <li class="hover:text-gray-500"><%= link_to 'About Us', about_us_path %></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
     <%= yield %>
   </body>
 </html>
