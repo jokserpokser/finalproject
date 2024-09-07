@@ -17,6 +17,6 @@ class CartsController < ApplicationController
       @cart.cart_items.create(item: item, quantity: 1)
     end
 
-    redirect_to cart_path, notice: "#{item.item_name} has been added to your cart."
+    # redirect_to cart_path, notice: "#{item.item_name} has been added to your cart."
   end
 end
