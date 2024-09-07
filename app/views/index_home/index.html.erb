@@ -6,10 +6,11 @@
     <p><%= item.item_description %></p>
     <p>Price: <%= number_to_currency(item.price) %></p>
 
-    <% if user_signed_in? && current_user.cart %>
-      <%= link_to 'Add to Cart', add_item_cart_path(cart_id: current_user.cart.id, item_id: item.id), method: :post, class: "btn btn-primary" %>
+    <% if user_signed_in? %>
+      <%= link_to 'Add to Cart', add_item_cart_path(item_id: item.id), method: :post, class: 'btn btn-primary' %>
     <% else %>
       <%= link_to 'Login to add to cart', new_user_session_path, class: "btn btn-secondary" %>
     <% end %>
+
   </div>
 <% end %>
