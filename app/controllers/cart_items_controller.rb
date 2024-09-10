@@ -28,7 +28,19 @@ class CartItemsController < ApplicationController
   end
 
   def decrease
+    if @cart_item
+      @cart_item.quantity > 1
+      @cart_item.quantity -= 1
+      @cart_item.total_price = @cart_item.quantity * @cart_item.item.price
 
+      if @cart_item.save
+        redirect_to cart_path, notice: "Item quantity increased."
+      else
+        redirect_to cart_path, notice: "Failed to update item quantity."
+      end
+    else
+      redirect_to cart_path, notice: "Item not found in cart."
+    end
   end
 
   private
