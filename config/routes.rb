@@ -14,7 +14,12 @@ Rails.application.routes.draw do
 
 
   # CartItems routes to handle item-specific actions in the cart
-  resources :cart_items, only: [:create, :destroy]
+  resources :cart_items, only: [:create, :destroy, :increase] do
+    member do
+      patch :increase
+      patch :decrease
+    end
+  end
 
   # Admin namespace routes
   namespace :admin do
