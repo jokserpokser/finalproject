@@ -64,6 +64,7 @@ input[type="submit"]:hover {
    font-weight: bolder;
    height: 100%;
    z-index: 999;
+   top: 0;
 }
 
 .admin-sidebar a {
@@ -104,6 +105,7 @@ input[type="submit"]:hover {
    height: 100%;
    background-color: #161616;
    color: #ffffff;
+   top: 0;
 }
 
 .items-container {
@@ -136,6 +138,7 @@ input[type="submit"]:hover {
 }
 
 .item {
+   margin-bottom: 3rem;
    padding: 1rem;
    height: 10rem;
 }
@@ -162,6 +165,7 @@ input[type="submit"]:hover {
    width: 5rem;
    border-radius: 0.2rem;
    font-weight: bolder;
+   font-size: 0.9rem;
 }
 
 .item-title a {
@@ -184,7 +188,7 @@ input[type="submit"]:hover {
    display: block;
    background-color: #232323;
    width: 20rem;
-   height: 7rem;
+   height: 10rem;
    padding: 1rem;
    border-bottom-left-radius: 0.5rem;
    border-bottom-right-radius: 0.5rem;
@@ -328,7 +332,7 @@ input[type="submit"]:hover {
    padding-inline: 1rem;
    padding-block: 0.4rem;
    font-size: 0.8em;
-   width: 3rem;
+   width: 5rem;
    font-weight: bolder;
 }
 

@@ -1,16 +1,52 @@
-<h2>Your Cart</h2>
 
 <% if @cart.cart_items.any? %>
-  <ul>
-    <% @cart.cart_items.each do |cart_item| %>
-      <li>
-        <%= cart_item.item.item_name %> - <%= cart_item.quantity %> - <%= number_to_currency(cart_item.item.price) %>
-        <%= button_to 'Remove', remove_item_cart_path(cart_item_id: cart_item.id), method: :delete, class: 'btn btn-danger' %>
-      </li>
-    <% end %>
-    
-  </ul>
-  <p>Total: <%= number_to_currency(@cart.total_price) %></p>
+
+<h2 class="mt-6 text-2xl text-red-600">Your Cart</h2>
+    <div class="overflow-x-auto mx-auto">
+      <table class="w-full text-sm text-left text-gray-500">
+          <thead class="text-xs text-white uppercase bg-red-700">
+              <tr>
+                  <th scope="col" class="px-6 py-3">
+                      Item Name
+                  </th>
+                  <th scope="col" class="px-6 py-3">
+                      Quantity
+                  </th>
+                  <th scope="col" class="px-6 py-3">
+                      Price
+                  </th>
+              </tr>
+          </thead>
+          <tbody>
+            <% @cart.cart_items.each do |cart_item| %>
+              <tr class="bg-white border-b">
+                  <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                    <%= cart_item.item.item_name %>
+                  </th>
+                  <td class="px-6 py-4 flex align-center">
+                    <%= cart_item.quantity %> <%= button_to " + ", increase_cart_item_path(cart_item.item_id), class: "bg-green-700 ml-3 px-2 text-white rounded", method: :patch %> 
+                    <%= button_to 'Remove', remove_item_cart_path(cart_item_id: cart_item.id), method: :delete, class: 'btn btn-danger' %>
+                  </td>
+                  <td class="px-6 py-4">
+                    <%= cart_item.quantity == 1 ? number_to_currency(cart_item.item.price) : number_to_currency(cart_item.total_price) %>
+                  </td>
+              </tr>
+            <% end %>
+            <tr class="bg-red-50 border-b">
+                  <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                    Total:
+                  </th>
+                  <td class="px-6 py-4">
+                  </td>
+                  <td class="px-6 py-4">
+                    <%= number_to_currency(@cart.total_price) %>
+                  </td>
+              </tr>
+          </tbody>
+      </table>
+    </div>
+
 <% else %>
   <p>Your cart is empty.</p>
 <% end %>
+
