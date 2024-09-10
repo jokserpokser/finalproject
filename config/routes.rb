@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resource :cart, only: [:show] do
     # POST method to add an item to the cart
     post 'add_item/:item_id', to: 'carts#add_item', as: 'add_item'
+    delete 'remove_item', to: 'carts#remove_item', as: 'remove_item'
   end
 
 

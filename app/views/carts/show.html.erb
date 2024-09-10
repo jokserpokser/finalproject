@@ -5,8 +5,10 @@
     <% @cart.cart_items.each do |cart_item| %>
       <li>
         <%= cart_item.item.item_name %> - <%= cart_item.quantity %> - <%= number_to_currency(cart_item.item.price) %>
+        <%= button_to 'Remove', remove_item_cart_path(cart_item_id: cart_item.id), method: :delete, class: 'btn btn-danger' %>
       </li>
     <% end %>
+    
   </ul>
   <p>Total: <%= number_to_currency(@cart.total_price) %></p>
 <% else %>
