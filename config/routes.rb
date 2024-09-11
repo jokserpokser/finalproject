@@ -12,6 +12,10 @@ Rails.application.routes.draw do
     delete 'remove_item', to: 'carts#remove_item', as: 'remove_item'
   end
 
+  #Checkout routes
+  get 'checkout', to: 'checkout#show'
+  post 'process_payment', to: 'checkout#process_payment'
+  get 'confirmation', to: 'checkout#confirmation'
 
 
   # CartItems routes to handle item-specific actions in the cart
