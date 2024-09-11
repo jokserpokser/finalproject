@@ -25,8 +25,13 @@
                     <%= cart_item.item.item_name %>
                   </th>
                   <td class="px-6 py-4 flex align-center">
-                    <%= button_to 'Remove', remove_item_cart_path(cart_item_id: cart_item.id), method: :delete, class: 'bg-red-700 mr-3 px-2 text-white rounded' %>
-                    <%= button_to " - ", decrease_cart_item_path(cart_item.item_id), class: "bg-red-700 mr-3 px-2 text-white rounded", method: :patch %> 
+                    <% if cart_item.quantity == 0 %>
+                      <%= button_to 'Remove', remove_item_cart_path(cart_item_id: cart_item.id), method: :delete, class: 'bg-red-700 mr-3 px-2 text-white rounded' %>
+                    <% end %>
+
+                    <% if cart_item.quantity != 0 %>
+                      <%= button_to " - ", decrease_cart_item_path(cart_item.item_id), class: "bg-red-700 mr-3 px-2 text-white rounded", method: :patch %> 
+                    <% end %>
                     <%= cart_item.quantity %> <%= button_to " + ", increase_cart_item_path(cart_item.item_id), class: "bg-green-700 ml-3 px-2 text-white rounded", method: :patch %> 
                     
                   </td>
