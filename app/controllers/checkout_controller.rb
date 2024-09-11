@@ -11,15 +11,18 @@ class CheckoutController < ApplicationController
     @cart = current_user.cart
     @total_amount = @cart.cart_items.sum { |item| item.quantity * item.item.price }
 
-    # Simulate payment logic (this is where you'd integrate Paymongo in the future)
-    payment_successful = true # Simulate payment success, replace with real logic
+    if current_user.balance >= @total_amount
+      current_user.update(balance: current_user.balance - @total_amount)
+      # Simulate payment logic (this is where you'd integrate Paymongo in the future)
+      payment_successful = true # Simulate payment success, replace with real logic
+    end
 
     if payment_successful
       session[:payment_successful] = true # Store the success flag in the session
       @cart.cart_items.destroy_all # Clear cart after payment
       redirect_to confirmation_path
     else
-      redirect_to checkout_path, alert: "Payment failed. Please try again."
+      redirect_to checkout_path, notice: "Payment failed. Please try again."
     end
   end
 
