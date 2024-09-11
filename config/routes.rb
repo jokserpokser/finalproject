@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :transactions
   # Home page route
   root "index_home#index"
   

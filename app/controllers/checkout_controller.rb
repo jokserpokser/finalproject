@@ -13,7 +13,12 @@ class CheckoutController < ApplicationController
 
     if current_user.balance >= @total_amount
       current_user.update(balance: current_user.balance - @total_amount)
-      # Simulate payment logic (this is where you'd integrate Paymongo in the future)
+      transaction = Transaction.create(cart_id: @cart.id, user_id: current_user.id, total_amount: @total_amount)
+      transaction_items = @cart.cart_items.map do |item|
+        { transaction_id: transaction.id, cart_id: item.cart_id, item_name: item.item.item_name, item_quantity: item.quantity }
+      end
+      TransactionItem.insert_all(transaction_items)
+      # Paymongo Logic
       payment_successful = true # Simulate payment success, replace with real logic
     end
 
