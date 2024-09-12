@@ -44,6 +44,9 @@
                                 <th scope="col" class="px-6 py-3 ext-center tracking-wider">
                                     Total Amount
                                 </th>
+                                <th scope="col" class="px-6 py-3 ext-center tracking-wider">
+                                    Date
+                                </th>
                             </tr>
                         </thead>
                         <tbody class="bg-gray-800 text-center">
@@ -61,6 +64,9 @@
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap">
                                         <%= number_to_currency(txn.total_amount) %>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <%= txn.created_at.strftime("%b %d, %Y %H:%M") %>
                                     </td>
                                 </tr>
                             <% end %>
