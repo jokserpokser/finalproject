@@ -1,0 +1,80 @@
+
+<div class="admin-container">
+  <div class="admin-sidebar bg-gray-800">
+        <p>
+            <%= link_to admin_dashboard_path do %>
+                <i class="fa-solid fa-table-columns"></i> Dashboard
+            <% end %>
+        </p>
+
+        <p class="current-page"><%= link_to admin_transactions_path do %>
+            <i class="fa-solid fa-box"></i> Transactions
+        <% end %></p>
+
+        <p><%= link_to admin_items_path do %>
+            <i class="fa-solid fa-list"></i> Item List
+        <% end %></p>
+
+        <p><%= link_to admin_user_list_index_path do %>
+            <i class="fa-solid fa-users"></i> Users
+        <% end %></p>
+
+        <p><%= render 'shared/logout_button' %></p>
+  </div>
+  <div class="admin-sidebar-content">
+    <div class="content-header">
+      <h1 class="content-title">Transactions
+        <span class="notice" ><%= notice %></span>
+        <span class="item-buttons"></span></h1>
+    </div>
+    <h1 class="text-lg text-white font-medium">All Transactions</h1>
+    <div class="flex flex-col mt-6 w-3/5">
+        <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+            <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+                <div class="shadow overflow-hidden sm:rounded-lg">
+                    <table class="min-w-full text-md text-gray-200">
+                        <thead class="bg-gray-800 text-md uppercase font-medium">
+                            <tr class="">
+                                <th scope="col" class="px-6 py-3 text-center tracking-wider">
+                                    User
+                                </th>
+                                <th scope="col" class="px-6 py-3 text-center tracking-wider">
+                                    Quantity | Item
+                                </th>
+                                <th scope="col" class="px-6 py-3 ext-center tracking-wider">
+                                    Total Amount
+                                </th>
+                                <th scope="col" class="px-6 py-3 ext-center tracking-wider">
+                                    Date
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-gray-800 text-center">
+                            <% @transactions.each do |txn| %>
+                                <tr class="bg-black bg-opacity-20">
+                                    <td class="flex px-6 py-4 whitespace-nowrap text-center">
+                                        <span class="ml-2 font-medium text-center"><%= txn.user_email %></span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <% @transaction_items.each do |item| %>
+                                            <% if item.transaction_id == txn.id %>
+                                                <%= item.item_quantity%> | <%= item.item_name %><br>
+                                            <% end %>
+                                        <% end %>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <%= number_to_currency(txn.total_amount) %>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <%= txn.created_at.strftime("%b %d, %Y %H:%M") %>
+                                    </td>
+                                </tr>
+                            <% end %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
