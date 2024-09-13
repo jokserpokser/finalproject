@@ -50,9 +50,9 @@ Rails.application.routes.draw do
   get 'index_home/index'
   # resources :items, only: [:index]
   get 'search_items', to: 'items#search', as: 'search_items'
-  resources :items do
-    collection do
-      get 'search'
+  resources :items, only: [:show] do
+    member do
+      get 'description', to: 'items#description', as: 'description'
     end
   end
 end
