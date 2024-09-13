@@ -48,4 +48,11 @@ Rails.application.routes.draw do
 
   # IndexHome routes
   get 'index_home/index'
+  # resources :items, only: [:index]
+  get 'search_items', to: 'items#search', as: 'search_items'
+  resources :items do
+    collection do
+      get 'search'
+    end
+  end
 end
