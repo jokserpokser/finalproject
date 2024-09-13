@@ -28,8 +28,7 @@ class CartItemsController < ApplicationController
   end
 
   def decrease
-    if @cart_item
-      @cart_item.quantity > 1
+    if @cart_item.quantity >= 1
       @cart_item.quantity -= 1
       @cart_item.total_price = @cart_item.quantity * @cart_item.item.price
 
