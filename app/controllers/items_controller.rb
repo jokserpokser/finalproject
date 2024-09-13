@@ -3,12 +3,17 @@ class ItemsController < ApplicationController
 
   # GET /items or /items.json
   def index
-    @items = Item.all
     flash[:notice] = ' '
+    @items = Item.all
+  end
+
+  def search
+    @items = Item.where('item_name LIKE ?', "%#{params[:query]}%")
   end
 
   # GET /items/1 or /items/1.json
   def show
+    @item = Item.find(params[:id])
   end
 
   # GET /items/new

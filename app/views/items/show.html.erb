@@ -1,6 +1,9 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @item %>
+<h1><%= @item.item_name %></h1>
+<p>Price: <%= @item.price %></p>
+<p>Description: <%= @item.description %></p>
+
 
 <div>
   <%= link_to "Edit this item", edit_item_path(@item) %> |
