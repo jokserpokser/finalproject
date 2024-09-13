@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :transactions
   # Home page route
   root "index_home#index"
   
@@ -31,6 +32,7 @@ Rails.application.routes.draw do
     resources :items
     get 'dashboard', to: 'home#index'
     resources :user_list
+    resources :transactions
   end
 
   # User routes for profile management

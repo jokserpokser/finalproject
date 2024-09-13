@@ -32,7 +32,7 @@ input[type="submit"] {
    padding-inline: 1rem;
    padding-block: 0.5rem;
    border: none;
-   background-color: #bb3453;
+   background-color: rgb(17 24 39);
    color: white;
    font-size: 1rem;
    border-radius: 0.2rem;
@@ -40,7 +40,7 @@ input[type="submit"] {
 
 input[type="submit"]:hover {
    cursor: pointer;
-   background-color: #5f1829;
+   background-color: rgb(3 7 18);
 }
 
 .admin-header {
@@ -118,7 +118,7 @@ input[type="submit"]:hover {
 
 .items-container2,
 .users-container2 {
-   background-color: #232323;
+   background-color: rgb(31 41 55);
    padding: 2rem;
    font-size: 1.2rem;
    width: 20rem;
@@ -168,6 +168,10 @@ input[type="submit"]:hover {
    font-size: 0.9rem;
 }
 
+.item-title button:hover {
+   background-color: rgb(138, 38, 38);
+}
+
 .item-title a {
    display: block;
    background-color: rgb(49, 49, 247);
@@ -182,6 +186,10 @@ input[type="submit"]:hover {
    border-radius: 0.2rem;
    margin-bottom: 0.5rem;
    font-weight: bolder;
+}
+
+.item-title a:hover {
+   background-color: rgb(33, 33, 176);
 }
 
 .item-content {
@@ -207,7 +215,7 @@ input[type="submit"]:hover {
    color: white;
    text-decoration: none;
    width: 100%;
-   background-color: #bb3453;
+   background-color: rgb(31 41 55);
    padding-block: 0.5rem;
    width: 7rem;
    font-size: 1rem;
@@ -217,7 +225,7 @@ input[type="submit"]:hover {
 }
 
 .item-buttons a:hover {
-   background-color: #5f1829;
+   background-color: rgb(17 24 39);
 }
 
 .item-buttons2 {
@@ -227,7 +235,7 @@ input[type="submit"]:hover {
 }
 
 .item-buttons2 a {
-   color: #bb3453;
+   color: rgb(156 163 175);
    text-decoration: underline;
    width: 100%;
    padding-block: 0.5rem;

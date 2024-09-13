@@ -1,0 +1,51 @@
+
+<div id="transactions">
+  
+      <h2 class="mt-6 text-2xl text-red-600">Transactions</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full text-sm text-left text-gray-500">
+            <thead class="text-xs text-gray-700 uppercase bg-gray-300">
+                <tr>
+                    <th scope="col" class="px-6 py-3">
+                        User
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Quantity | Items
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Total Amount
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Date
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+              <% @transactions.each do |txn| %>
+                <% if txn.user_id == current_user.id %>
+                  <tr class="bg-white border-b">
+                      <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                        <%= txn.user_email %>
+                      </th>
+                      <td class="px-6 py-4">
+                        <% @transaction_items.each do |item| %>
+                          <% if item.transaction_id == txn.id %>
+                            <%= item.item_quantity%> | <%= item.item_name %><br>
+                          <% end %>
+                        <% end %>
+                      </td>
+                      <td class="px-6 py-4">
+                        <%= number_to_currency(txn.total_amount) %>
+                      </td>
+                      <td class="px-6 py-4">
+                        <%= txn.created_at.strftime("%b %d, %Y %H:%M") %>
+                      </td>
+                  </tr>
+                <% end %>
+              <% end %>
+            </tbody>
+        </table>
+      </div>
+    
+</div>
+
