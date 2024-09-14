@@ -28,7 +28,85 @@
     </div>
     <div class="admin-sidebar-content">
 
-        <h2>Welcome to the admin dashboard!</h2>
+        <div class="flex flex-col flex-1">
+
+            <main class="flex-1 w-full">
+            <div class="py-6">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
+                <h1 class="text-2xl font-semibold text-gray-200 text-center">Dashboard</h1>
+                </div>
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
+
+        </div>
+
+
+        <dl class="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            <div class="relative bg-zinc-900 pt-5 px-4 pb-12 sm:pt-6 sm:px-6 shadow rounded-lg overflow-hidden shadow-gray-500">
+            <dt>
+                <div class="absolute bg-gray-800 rounded-md p-3">
+                <svg class="h-6 w-6 text-gray-200" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+                </svg>
+                </div>
+                <p class="ml-16 text-sm font-medium text-gray-400 truncate">Total Users</p>
+            </dt>
+            <dd class="ml-16 pb-6 flex items-baseline sm:pb-7">
+                <p class="text-2xl font-semibold text-gray-200"><%= @users_count %></p>
+                <p class="ml-2 flex items-baseline text-sm font-semibold text-green-600">
+                </p>
+                <div class="absolute bottom-0 inset-x-0 bg-gray-50 px-4 py-4 sm:px-6 bg-gray-800">
+                <div class="text-sm">
+                    <%= link_to "View all", admin_user_list_index_path, class: "font-medium text-gray-200 hover:underline" %>
+                </div>
+                </div>
+            </dd>
+            </div>
+
+            <div class="relative bg-zinc-900 pt-5 px-4 pb-12 sm:pt-6 sm:px-6 shadow rounded-lg overflow-hidden shadow-gray-500">
+            <dt>
+                <div class="absolute bg-gray-800 rounded-md p-3">
+                <svg class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 19v-8.93a2 2 0 01.89-1.664l7-4.666a2 2 0 012.22 0l7 4.666A2 2 0 0121 10.07V19M3 19a2 2 0 002 2h14a2 2 0 002-2M3 19l6.75-4.5M21 19l-6.75-4.5M3 10l6.75 4.5M21 10l-6.75 4.5m0 0l-1.14.76a2 2 0 01-2.22 0l-1.14-.76" />
+                </svg>
+                </div>
+                <p class="ml-16 text-sm font-medium text-gray-400 truncate">Total Transactions</p>
+            </dt>
+            <dd class="ml-16 pb-6 flex items-baseline sm:pb-7">
+                <p class="text-2xl font-semibold text-gray-200"><%= @transactions_count %></p>
+                <p class="ml-2 flex items-baseline text-sm font-semibold text-green-600">
+                </p>
+                <div class="absolute bottom-0 inset-x-0 bg-gray-50 px-4 py-4 sm:px-6 bg-gray-800">
+                <div class="text-sm">
+                    <%= link_to "View all", admin_transactions_path, class: "font-medium text-gray-200 hover:underline" %>
+                </div>
+                </div>
+            </dd>
+            </div>
+
+            <div class="relative bg-zinc-900 pt-5 px-4 pb-12 sm:pt-6 sm:px-6 shadow rounded-lg overflow-hidden shadow-gray-500">
+            <dt>
+                <div class="absolute bg-gray-800 rounded-md p-3">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-white">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 6.75h12M8.25 12h12m-12 5.25h12M3.75 6.75h.007v.008H3.75V6.75Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0ZM3.75 12h.007v.008H3.75V12Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm-.375 5.25h.007v.008H3.75v-.008Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
+                </svg>
+
+                </div>
+                <p class="ml-16 text-sm font-medium text-gray-400 truncate">Total Items</p>
+            </dt>
+            <dd class="ml-16 pb-6 flex items-baseline sm:pb-7">
+                <p class="text-2xl font-semibold text-gray-200"><%= @item_count %></p>
+                <p class="ml-2 flex items-baseline text-sm font-semibold text-red-600">
+                </p>
+                <div class="absolute bottom-0 inset-x-0 bg-gray-50 px-4 py-4 sm:px-6 bg-gray-800">
+                <div class="text-sm">
+                    <%= link_to "View all", admin_items_path, class: "font-medium text-gray-200 hover:underline" %>
+                </div>
+                </div>
+            </dd>
+            </div>
+        </dl>
+        </div>
+        
     </div>
 </div>
 
