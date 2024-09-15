@@ -1,31 +1,32 @@
-<%= render 'shared/logout_button' %>
 
-<h1>User Profile</h1>
+<div class=" w-full">
+  <div class="mt-24 max-w-xs rounded-2xl border bg-white p-10 text-center shadow-lg mx-auto">
+      <img class="mx-auto mb-4 h-32 w-32 rounded-full shadow-lg" src="https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg" alt="profile picture" />
+      <h1 class="text-xl font-semibold text-slate-800"><%= @user.email %></h1>
+      <h2 class="font-semibold text-slate-500"><%= @user.balance.present? ? number_to_currency(@user.balance) : "Not provided" %></h2>
+      <p class="mt-4 text-sm font-normal text-slate-800">
+        <strong>Name:</strong>
+        <%= @user.name.present? ? @user.name : "Not provided" %>
+      </p>
 
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
+      <p class="mt-4 text-sm font-normal text-slate-800">
+        <strong>Contact Number:</strong>
+        <%= @user.contact_number.present? ? @user.contact_number : "Not provided" %>
+      </p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @user.name.present? ? @user.name : "Not provided" %>
-</p>
+      <p class="mt-4 text-sm font-normal text-slate-800">
+        <strong>Address:</strong>
+        <%= @user.address.present? ? @user.address : "Not provided" %>
+      </p>
+      <br>
+      <div class="flex flex-col">
+        <%= link_to 'Edit Profile', edit_user_path, class: "mt-8 rounded-3xl border-2 border-solid border-violet-900 px-8 py-2 font-semibold uppercase tracking-wide text-violet-900 hover:bg-violet-900 hover:text-white" %>
+        <br>
+        <%= link_to 'Transactions', transactions_path, class: "rounded-3xl border-2 border-solid border-violet-900 px-8 py-2 font-semibold uppercase tracking-wide text-violet-900 hover:bg-violet-900 hover:text-white" %>
+        <br>
+        <%= render 'shared/logout_button' %>
+      </div>
+      
+  </div>
+</div>
 
-<p>
-  <strong>Contact Number:</strong>
-  <%= @user.contact_number.present? ? @user.contact_number : "Not provided" %>
-</p>
-
-<p>
-  <strong>Address:</strong>
-  <%= @user.address.present? ? @user.address : "Not provided" %>
-</p>
-
-<p>
-  <strong>Balance:</strong>
-  <%= @user.balance.present? ? @user.balance : "Not provided" %>
-</p>
-
-<%= link_to 'Edit Profile', edit_user_path %>
-<%= link_to 'Transactions', transactions_path %>

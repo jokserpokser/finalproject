@@ -1,11 +1,11 @@
 
 <% if @cart.cart_items.any? %>
 
-<h2 class="mt-6 text-2xl text-red-600 text-center font-bold	">Your Cart</h2>
+<h2 class="mt-6 text-2xl text-violet-900 text-center font-bold	">Your Cart</h2>
 <div class="w-3/5 mx-auto">
   <div class="overflow-x-auto"></div>
       <table class="w-full text-sm text-left text-gray-500 ">
-          <thead class="text-xs text-white uppercase bg-red-700">
+          <thead class="text-xs text-white uppercase bg-violet-900">
               <tr>
                   <th scope="col" class="px-6 py-3">
                       Item Name
@@ -25,11 +25,11 @@
                     <%= cart_item.item.item_name %>
                   </th>
                   <td class="px-6 py-4 flex align-center">
-                    <% if cart_item.quantity == 0 %>
+                    <% if cart_item.quantity == 1 %>
                       <%= button_to 'Remove', remove_item_cart_path(cart_item_id: cart_item.id), method: :delete, class: 'bg-red-700 mr-3 px-2 text-white rounded' %>
                     <% end %>
 
-                    <% if cart_item.quantity != 0 %>
+                    <% if cart_item.quantity > 1 %>
                       <%= button_to " - ", decrease_cart_item_path(cart_item.item_id), class: "bg-red-700 mr-3 px-2 text-white rounded", method: :patch %> 
                     <% end %>
                     <%= cart_item.quantity %> <%= button_to " + ", increase_cart_item_path(cart_item.item_id), class: "bg-green-700 ml-3 px-2 text-white rounded", method: :patch %> 
@@ -40,20 +40,20 @@
                   </td>
               </tr>
             <% end %>
-            <tr class="bg-red-50 border-b">
+            <tr class="bg-violet-50 border-b">
                   <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
                     Total:
                   </th>
                   <td class="px-6 py-4">
                   </td>
-                  <td class="bg-red-100 px-6 py-4 text-green-700 font-medium">
+                  <td class="bg-violet-100 px-6 py-4 text-green-700 font-medium">
                     <%= number_to_currency(@cart.total_price) %>
                   </td>
               </tr>
           </tbody>
       </table>
       <div class="flex justify-end mt-6 mr-3">
-        <%= link_to 'Proceed to Checkout', checkout_path, class: 'bg-gray-600 text-white px-6 py-3 rounded hover:bg-gray-500 mr-2' %>
+        <%= link_to 'Proceed to Checkout', checkout_path, class: 'bg-violet-900 text-white px-6 py-3 rounded hover:bg-gray-500 mr-2' %>
       </div>
     </div>
 

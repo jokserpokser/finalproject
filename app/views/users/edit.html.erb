@@ -1,28 +1,38 @@
-<h1>Edit Profile</h1>
 
 <%= form_for(@user, url: user_path, method: :put) do |f| %>
-  <div>
-    <%= f.label :email %>
-    <%= f.text_field :email, disabled: true %>
-  </div>
 
-  <div>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </div>
+<div class="w-full">
+     <h2 class="text-center text-violet-800 font-bold text-2xl uppercase mb-10 mt-10">Edit Profile</h2>
+     <div class="bg-white p-10 rounded-lg shadow md:w-3/4 mx-auto lg:w-1/3">
+       <form action="">
+         <div class="mb-5">
+          <%= f.label :email, class: "block mb-2 font-bold text-gray-600" %>
+          <%= f.text_field :email, disabled: true, class: "border border-gray-300 shadow p-3 w-full rounded mb- bg-gray-300" %>
+         </div>
 
-  <div>
-    <%= f.label :contact_number %>
-    <%= f.text_field :contact_number %>
-  </div>
+         <div class="mb-5">
+          <%= f.label :name, class: "block mb-2 font-bold text-gray-600" %>
+          <%= f.text_field :name, class: "border border-gray-300 shadow p-3 w-full rounded mb-" %>
+         </div>
 
-  <div>
-    <%= f.label :address %>
-    <%= f.text_area :address %>
-  </div>
+         <div class="mb-5">
+          <%= f.label :contact_number, class: "block mb-2 font-bold text-gray-600" %>
+          <%= f.text_field :contact_number, class: "border border-gray-300 shadow p-3 w-full rounded mb-" %>
+         </div>
 
-  <div>
-    <%= f.submit 'Update Profile' %>
-  </div>
+         <div class="mb-5">
+          <%= f.label :address, class: "block mb-2 font-bold text-gray-600" %>
+          <%= f.text_field :address, class: "border border-gray-300 shadow p-3 w-full rounded mb-" %>
+         </div>
+          <%= notice %>
+         <div class="flex flex-col items-center">
+          <%= f.submit 'Update Profile', class: "block w-full !bg-violet-900 text-white font-bold !p-4 !rounded-lg hover:!bg-violet-950" %>
+          <%= link_to 'Back', user_path, class: "block mt-4 w-1/2 bg-red-700 text-white font-bold p-3 rounded-lg text-center hover:!bg-red-800" %>
+         </div>
+         
+       </form>
+     </div>
+   </div>
+</div>
+
 <% end %>
-<%= link_to 'Back', user_path %>
