@@ -86,6 +86,7 @@ input[type="submit"]:hover {
    width: 100%;
    text-align: left;
    font-size: 1rem;
+   border-radius: 0%;
 }
 
 .admin-sidebar p:hover,

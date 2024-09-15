@@ -11,7 +11,7 @@ class CheckoutController < ApplicationController
     @cart = current_user.cart
     @total_amount = @cart.cart_items.sum { |item| item.quantity * item.item.price }
 
-    if current_user.balance >= @total_amount
+    if current_user.balance >= @total_amount && @cart.cart_items.any?
       current_user.update(balance: current_user.balance - @total_amount)
       transaction = Transaction.create(cart_id: @cart.id, user_id: current_user.id, user_email: current_user.email, total_amount: @total_amount)
       transaction_items = @cart.cart_items.map do |item|
