@@ -1,16 +1,19 @@
-<h1>Welcome to Our Online Shop</h1>
+<div class="container mx-auto px-4">
+  <h1 class="text-3xl font-bold text-center my-8">Welcome to Oh, My Gifts!</h1>
 
-<% @items.each do |item| %>
-  <div class="product-item">
-    <h2><%= item.item_name %></h2>
-    <p><%= item.item_description %></p>
-    <p>Price: <%= number_to_currency(item.price) %></p>
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+    <% @items.each do |item| %>
+      <div class="product-item border rounded-lg shadow-lg p-4 flex flex-col justify-between">
+        <h2 class="text-xl font-semibold text-gray-800 mb-4"><%= link_to item.item_name, description_item_path(item), class: "text-blue-500 hover:underline" %></h2>
+        <p class="text-gray-700 mb-4"><%= item.item_description %></p>
+        <p class="text-lg font-bold mb-4">Price: <%= number_to_currency(item.price, unit: "₱", format: "%u%n") %></p>
 
-    <% if user_signed_in? %>
-      <%= button_to 'Add to Cart', add_item_cart_path(item_id: item.id), method: :post, class: 'btn btn-primary' %>
-    <% else %>
-      <%= link_to 'Login to add to cart', new_user_session_path, class: "btn btn-secondary" %>
+        <% if user_signed_in? %>
+          <%= button_to 'Add to Cart', add_item_cart_path(item_id: item.id), method: :post, class: 'mt-auto bg-blue-500 text-white py-2 rounded hover:bg-blue-600 transition' %>
+        <% else %>
+          <%= link_to 'Login to add to cart', new_user_session_path, class: "mt-auto bg-gray-300 text-gray-800 py-2 rounded hover:bg-gray-400 transition text-center" %>
+        <% end %>
+      </div>
     <% end %>
-
   </div>
-<% end %>
+</div>

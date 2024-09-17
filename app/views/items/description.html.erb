@@ -1,7 +1,29 @@
-<h1><%= @item.item_name %></h1>
+<div class="max-w-4xl mx-auto p-6 bg-white rounded-lg shadow-lg mt-12">
+  <h1 class="text-4xl font-bold text-gray-800 mb-6"><%= @item.item_name %></h1>
 
-<p><strong>Description:</strong> <%= @item.item_description %></p>
+  <div class="mb-4">
+    <p class="text-xl text-gray-700">
+      <strong class="font-semibold text-gray-800">Description:</strong> 
+      <%= @item.item_description %>
+    </p>
+  </div>
 
-<p><strong>Price:</strong> $<%= @item.price %></p>
+  <div class="mb-8">
+    <p class="text-2xl font-bold text-gray-900">
+      <strong>Price:</strong> 
+      ₱<%= @item.price %>
+    </p>
+  </div>
 
-<%= link_to 'Back to Home', root_path, class: 'btn btn-secondary' %>
+  <% if user_signed_in? %>
+    <div class="flex justify-start space-x-4">
+      <%= button_to 'Add to Cart', add_item_cart_path(item_id: @item.id), method: :post, class: 'bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded' %>
+      <%= link_to 'Back to Home', root_path, class: 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded' %>
+    </div>
+  <% else %>
+    <div class="flex justify-start space-x-4">
+      <%= link_to 'Login to add to cart', new_user_session_path, class: 'bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded' %>
+      <%= link_to 'Back to Home', root_path, class: 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded' %>
+    </div>
+  <% end %>
+</div>

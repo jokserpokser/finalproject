@@ -11,9 +11,9 @@
     <% end %>
   </ul>
 
-  <p><strong>Total Amount:</strong> <%= number_to_currency(@total_amount) %></p>
+  <p><strong>Total Amount:</strong> <%= number_to_currency(@total_amount, unit: "₱", format: "%u%n") %></p>
 
-  <%= button_to 'Proceed to Payment', process_payment_path, method: :post, class: 'btn btn-primary' %>
+  <%= button_to 'Proceed to Payment', process_payment_checkout_path, method: :post, class: 'btn btn-primary' %>
 
 <% else %>
   <p>Your cart is empty!</p>
