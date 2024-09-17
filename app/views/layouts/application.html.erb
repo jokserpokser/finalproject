@@ -15,31 +15,35 @@
   </head>
 
   <body class="font-[Poppins] bg-gradient-to-t from-[#fbc2eb] to-[#a6c1ee] h-screen">
-    <header class="bg-white">
-      <nav class="flex justify-between items-center w-[92%] mx-auto">
-        <div class="header-log w-16">
-          <%= image_tag 'OMGs.png', alt: 'Site logo', class: 'logo' %>
-        </div>
-         <div class="relative ml-8">
+    
+    <% unless (controller_name == 'sessions' && action_name == 'new') || 
+             (controller_name == 'registrations' && action_name == 'new') || 
+             (controller_name == 'passwords' && action_name == 'new') %>
+      <header class="bg-white">
+        <nav class="flex justify-between items-center w-[92%] mx-auto">
+          <div class="header-log w-16">
+            <%= image_tag 'OMGs.png', alt: 'Site logo', class: 'logo' %>
+          </div>
+          <div class="relative ml-8">
             <%= form_with url: search_items_path, method: :get, local: true do |f| %>
               <input type="text" name="query" placeholder="Search products..." class="px-20 py-2 border border-gray-300 rounded-full focus:outline-none focus:border-indigo-500" />
               <button type="submit" class="absolute right-0 top-0 mt-2 mr-4 text-gray-600">
                 <i class="fas fa-search"></i>
               </button>
             <% end %>
-        </div>
-        <div class="">
-          <ul class="flex items-center gap-[4vw]">
-            <li class="hover:text-gray-500"><%= link_to 'Home', index_home_index_path %></li>
-            <li class="hover:text-gray-500"><%= link_to 'Cart', cart_path %></li>
-            <li class="hover:text-gray-500"><%= link_to 'Profile', user_path %></li>
-            <li class="hover:text-gray-500"><%= link_to 'About Us', about_us_path %></li>
-          </ul>
-          
-        </div>
-       
-      </nav>
-    </header>
+          </div>
+          <div class="">
+            <ul class="flex items-center gap-[4vw]">
+              <li class="hover:text-gray-500"><%= link_to 'Home', index_home_index_path %></li>
+              <li class="hover:text-gray-500"><%= link_to 'Cart', cart_path %></li>
+              <li class="hover:text-gray-500"><%= link_to 'Profile', user_path %></li>
+              <li class="hover:text-gray-500"><%= link_to 'About Us', about_us_path %></li>
+            </ul>
+          </div>
+        </nav>
+      </header>
+    <% end %>
+
     <%= yield %>
   </body>
 </html>
