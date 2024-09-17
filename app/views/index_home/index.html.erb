@@ -4,7 +4,7 @@
   <div class="product-item">
     <h2><%= item.item_name %></h2>
     <p><%= item.item_description %></p>
-    <p>Price: <%= number_to_currency(item.price) %></p>
+    <p>Price: <%= number_to_currency(item.price, unit: "₱", format: "%u%n") %></p>
 
     <% if user_signed_in? %>
       <%= button_to 'Add to Cart', add_item_cart_path(item_id: item.id), method: :post, class: 'btn btn-primary' %>
