@@ -20,8 +20,8 @@ body {
 
 input:focus {
    outline: none; /* Remove default outline */
-   border: 2px solid #bb3453; /* Add a custom border */
-   box-shadow: 0 0 5px #5f1829; /* Optional: Add a shadow */
+   border: 2px solid #5802a8; /* Add a custom border */
+   box-shadow: 0 0 5px #2a0253; /* Optional: Add a shadow */
 }
 
 button {
