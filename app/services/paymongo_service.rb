@@ -1,4 +1,5 @@
 class PaymongoService
+  include HTTParty
   require 'uri'
   require 'net/http'
   require 'base64'
