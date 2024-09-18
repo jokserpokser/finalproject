@@ -64,6 +64,8 @@ group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
   gem "selenium-webdriver"
+  gem 'rspec-rails'
+  gem 'factory_bot_rails'
 end
 
 gem "devise", "~> 4.9"
@@ -71,3 +73,7 @@ gem "devise", "~> 4.9"
 gem 'http'
 
 gem 'dotenv-rails', groups: [:development, :test]
+gem 'httparty' # or
+gem 'rest-client'
+gem 'json'
+gem 'rack-cors', require: 'rack/cors'

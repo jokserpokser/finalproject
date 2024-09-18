@@ -14,13 +14,13 @@ Rails.application.routes.draw do
   end
 
   #Checkout routes
-  # get 'checkout', to: 'checkout#show'
-  # post 'process_payment', to: 'checkout#process_payment'
-  # get 'confirmation', to: 'checkout#confirmation'
-  resource :checkout, controller: 'checkout', only: [:show, :create] do
-    post 'process_payment', on: :collection
-    get 'confirmation', on: :collection
-  end
+  get 'checkout', to: 'checkout#show'
+  post 'process_payment', to: 'checkout#process_payment'
+  get 'confirmation', to: 'checkout#confirmation'
+  # resource :checkout, controller: 'checkout', only: [:show, :create] do
+  #   post 'process_payment', on: :collection
+  #   get 'confirmation', on: :collection
+  # end
 
   # CartItems routes to handle item-specific actions in the cart
   resources :cart_items, only: [:create, :destroy, :increase] do

@@ -1,0 +1,9 @@
+<h1>Checkout</h1>
+
+<% if @checkout_url.present? %>
+  <p>Please complete your payment by clicking the link below:</p>
+  <a href="<%= @checkout_url %>" target="_blank" class="btn btn-primary">Proceed to Payment</a>
+  <p>If you are not redirected, <%= link_to 'click here to complete your payment.', @checkout_url, target: "_blank" %></p>
+<% else %>
+  <p>No payment link available. Please try again.</p>
+<% end %>
