@@ -197,7 +197,7 @@ input[type="submit"]:hover {
    display: block;
    background-color: #232323;
    width: 20rem;
-   height: 10rem;
+   height: auto;
    padding: 1rem;
    border-bottom-left-radius: 0.5rem;
    border-bottom-right-radius: 0.5rem;
