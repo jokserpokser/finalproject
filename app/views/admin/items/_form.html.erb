@@ -20,10 +20,12 @@
   <%= form.label :item_description, style: "display: block" %>
   <%= form.text_field :item_description, required: true  %>
   
-
   
   <%= form.label :price, style: "display: block" %>
   <%= form.number_field :price, required: true  %>
+
+  <%= form.label :image, style: "display: block" %>
+  <%= form.file_field :image, class: "mb-4" %>
   <br>
   <div class="submit-container">
     <%= form.submit %>
