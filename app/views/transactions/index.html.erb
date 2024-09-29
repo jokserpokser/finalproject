@@ -3,7 +3,7 @@
   
       <h2 class="mt-6 text-2xl text-violet-900">Transactions</h2>
       <%= link_to 'Back to Profile', user_path, class: "underline text-violet-900 text-sm hover:text-white" %>
-      <div class="overflow-x-auto">
+      <div class="overflow-x-auto max-h-96">
         <table class="w-full text-sm text-left text-gray-500">
             <thead class="text-xs text-white uppercase bg-violet-900">
                 <tr>
@@ -23,7 +23,7 @@
             </thead>
             <tbody>
               <% @transactions.each do |txn| %>
-                <% if txn.user_id == current_user.id %>
+                <% if txn.user_email == current_user.email %>
                   <tr class="bg-white border-b">
                       <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
                         <%= txn.user_email %>
