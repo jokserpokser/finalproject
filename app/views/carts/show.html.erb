@@ -36,7 +36,7 @@
                     
                   </td>
                   <td class="px-6 py-4">
-                    <%= cart_item.quantity == 1 ? number_to_currency(cart_item.item.price, unit: "₱", format: "%u%n") : number_to_currency(cart_item.total_price, unit: "₱", format: "%u%n") %>
+                    <%= cart_item.quantity <= 1 ? number_to_currency(cart_item.item.price, unit: "₱", format: "%u%n") : number_to_currency(cart_item.total_price, unit: "₱", format: "%u%n") %>
                   </td>
               </tr>
             <% end %>

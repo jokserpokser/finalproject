@@ -1,5 +1,6 @@
 class Admin::UserListController < ApplicationController
     before_action :set_user, only: [:edit, :update, :destroy]
+    before_action :authenticate_admin!
   
     # GET /admin/user_list
     def index

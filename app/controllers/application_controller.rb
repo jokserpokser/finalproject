@@ -21,4 +21,8 @@ class ApplicationController < ActionController::Base
   def after_sign_out_path_for(resource_or_scope)
     new_user_session_path
   end
+
+  def authenticate_admin!
+    redirect_to root_path, alert: "You are not authorized to access this page." unless current_user&.user_type == 'admin'
+  end
 end
