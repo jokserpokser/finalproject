@@ -70,9 +70,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_23_005444) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "transaction_id"
-    t.integer "cart_id"
     t.string "item_name"
     t.integer "item_quantity"
+    t.integer "cart_id"
   end
 
   create_table "transactions", force: :cascade do |t|
@@ -80,7 +80,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_23_005444) do
     t.decimal "total_amount", precision: 10, scale: 2, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "user_id"
     t.string "user_email"
   end
 
